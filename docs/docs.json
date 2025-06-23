@@ -42,12 +42,13 @@
               "concepts/agents",
               "concepts/messages",
               "concepts/state",
-              "concepts/tools"
+              "concepts/tools",
+              "concepts/mcp-os"
             ]
           },
           {
             "group": "Tutorials",
-            "pages": ["tutorials/cursor", "tutorials/debugging"]
+            "pages": ["tutorials/cursor", "tutorials/debugging", "tutorials/smithery-cli", "tutorials/mcp-os-quickstart"]
           },
           {
             "group": "Development",

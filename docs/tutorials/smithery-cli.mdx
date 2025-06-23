@@ -1,0 +1,70 @@
+---
+title: "Smithery CLI"
+description: "Install and run Model Context Protocol servers with the Smithery CLI"
+---
+
+# Overview
+
+The [Smithery CLI](https://github.com/smithery-ai/cli) provides a quick way to install and manage Model Context Protocol (MCP) servers. It works with any AG-UI compatible client and is a fast way to explore different server implementations.
+
+This guide walks through installing the CLI, grabbing a sample server, and running it end to end.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) **v18 or later**
+- A Smithery account and API key
+
+## 1. Install the CLI
+
+You can run the tool directly via `npx`:
+
+```bash
+npx @smithery/cli --help
+```
+
+The first run downloads the CLI and shows the available commands.
+
+## 2. Login
+
+Authenticate the CLI so it can fetch servers from the registry:
+
+```bash
+npx @smithery/cli login
+```
+
+Follow the prompt and paste your API key.
+
+## 3. Install a server
+
+Smithery hosts many prebuilt MCP servers. For example, install the `mcp-obsidian` server for the `claude` client:
+
+```bash
+npx @smithery/cli install mcp-obsidian --client claude
+```
+
+You can list available clients and installed servers with:
+
+```bash
+npx @smithery/cli list clients
+npx @smithery/cli list servers --client claude
+```
+
+## 4. Run the server
+
+Start the server with any required configuration:
+
+```bash
+npx @smithery/cli run mcp-obsidian --config '{"vaultPath":"/path/to/vault"}'
+```
+
+The CLI launches the server locally. You will see the MCP endpoint URL in the output.
+
+## 5. Connect via AG-UI
+
+Once the server is running you can point any AG-UI compatible client or application at the MCP endpoint. The server streams events that AG-UI can render or forward into your own interface.
+
+This completes the full loop: user input flows through AG-UI to the MCP server and the responses stream back for display.
+
+## Next steps
+
+Explore other Smithery servers or build your own. The CLI's `dev` command lets you hot‑reload custom servers and even open a playground to test them interactively.
