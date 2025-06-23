@@ -1,0 +1,59 @@
+---
+title: "MCP-OS Quickstart"
+description: "End to end example using Smithery CLI and AG-UI client"
+---
+
+This tutorial walks through building a minimal MCP‑OS proof of concept. We will
+run an MCP server with the
+**[Smithery CLI](https://github.com/smithery-ai/cli)** and connect to it with a
+small AG‑UI client.
+
+## 1. Install prerequisites
+
+- [Node.js](https://nodejs.org/) **v18+**
+- A Smithery account and API key
+
+## 2. Start a sample MCP server
+
+Install the Smithery CLI and launch a server:
+
+```bash
+npx @smithery/cli login
+npx @smithery/cli install mcp-obsidian --client claude
+npx @smithery/cli run mcp-obsidian
+```
+
+The output prints the local MCP endpoint URL. Export it for the client to use:
+
+```bash
+export MCP_SERVER_URL=http://localhost:8080/mcp
+```
+
+## 3. Run the MCP shell examples
+
+Two minimal clients are provided to connect to your server.
+
+### TypeScript
+
+Run the `mcp-shell.ts` script with **ts-node**:
+
+```bash
+npx ts-node typescript-sdk/examples/mcp-shell.ts
+```
+
+### Python
+
+Alternatively you can use the Python example:
+
+```bash
+python python-sdk/examples/mcp_shell.py
+```
+
+Both scripts send a greeting message to the server and stream back MCP events.
+These events describe the UI state that an MCP‑OS shell would render.
+
+## 4. Next steps
+
+Modify the example to forward user input from your own interface and render the
+returned component tree. This forms the basis of an MCP‑OS style workflow where
+the UI is generated on demand by the server.
