@@ -3,7 +3,7 @@ import { HttpAgent } from "../packages/client/src/agent";
 async function main() {
   const url = process.env.MCP_SERVER_URL;
   if (!url) {
-    console.error("Set MCP_SERVER_URL to the running Smithery server endpoint");
+    console.error("Set MCP_SERVER_URL to the running MCP server endpoint");
     process.exit(1);
   }
 

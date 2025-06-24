@@ -1,32 +1,30 @@
 ---
 title: "MCP-OS Quickstart"
-description: "End to end example using Smithery CLI and AG-UI client"
+description: "End to end example using AG-UI server and client"
 ---
 
-This tutorial walks through building a minimal MCP‑OS proof of concept. We will
-run an MCP server with the
-**[Smithery CLI](https://github.com/smithery-ai/cli)** and connect to it with a
-small AG‑UI client.
+This tutorial walks through building a minimal MCP‑OS proof of concept. We'll
+run the included AG‑UI server starter and connect to it with a small client.
 
 ## 1. Install prerequisites
 
-- [Node.js](https://nodejs.org/) **v18+**
-- A Smithery account and API key
+- [Python](https://www.python.org/) **3.12+**
+- [Poetry](https://python-poetry.org/docs/#installation)
 
 ## 2. Start a sample MCP server
 
-Install the Smithery CLI and launch a server:
+Clone the repository and launch the server-starter example:
 
 ```bash
-npx @smithery/cli login
-npx @smithery/cli install mcp-obsidian --client claude
-npx @smithery/cli run mcp-obsidian
+git clone https://github.com/ag-ui-protocol/ag-ui.git
+cd ag-ui/typescript-sdk/integrations/server-starter/server/python
+poetry install && poetry run dev
 ```
 
-The output prints the local MCP endpoint URL. Export it for the client to use:
+The server listens on `http://localhost:8000`. Export it for the client:
 
 ```bash
-export MCP_SERVER_URL=http://localhost:8080/mcp
+export MCP_SERVER_URL=http://localhost:8000
 ```
 
 ## 3. Run the MCP shell examples

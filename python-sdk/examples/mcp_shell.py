@@ -7,7 +7,7 @@ import requests
 def main() -> None:
     url = os.environ.get("MCP_SERVER_URL")
     if not url:
-        print("Set MCP_SERVER_URL to the running Smithery server endpoint", file=sys.stderr)
+        print("Set MCP_SERVER_URL to the running MCP server endpoint", file=sys.stderr)
         sys.exit(1)
 
     payload = {
